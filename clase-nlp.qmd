@@ -1,0 +1,396 @@
+---
+# title: "Capacitación en R y herramientas de productividad"
+# author: "Abril 2021"
+format:
+  # html:
+  #   code-fold: true
+  revealjs:
+    auto-stretch: false
+    margin: 0
+    slide-number: true
+    scrollable: true
+    preview-links: auto
+    page-layout: custom
+    logo: imagenes/logo_portada2.png
+    css: ine_quarto_styles.css
+    # footer: <https://quarto.org>
+engine: knitr
+---
+
+#
+
+<!---
+# TODO: this does not work
+ .linea-superior[]
+.linea-inferior[] 
+--->
+
+<!---
+# TODO: this does not work
+ ![](imagenes/logo_portada2.png){.center style="width: 20%;"}   
+--->
+
+[]{.linea-superior} 
+[]{.linea-inferior} 
+
+
+<!---
+ <img src="imagenes/logo_portada2.png" style="width: 20%"/>  
+--->
+
+<img src="imagenes/logo_portada2.png" width="20%"/>  
+
+[**Mentoría Censo: Codificación**]{.big-par .center-justified}
+
+[**Proyecto Ciencia de Datos**]{.big-par .center-justified}
+
+[**Introducción al Procesamiento de Lenguaje Natural**]{.big-par .center-justified}
+
+[**octubre 2023**]{.big-par .center-justified}
+
+
+
+
+## Un poco de código
+
+```{r, echo=T}
+
+if (!require("quanteda")) install.packages("quanteda")
+if (!require("tidyverse")) install.packages("tidyverse")
+if (!require("quanteda.textstats")) install.packages("quanteda.textstats")
+if (!require("kableExtra")) install.packages("kableExtra")
+if (!require("word2vec")) install.packages("word2vec")
+if (!require("reticulate")) install.packages("reticulate")
+if (!require("tm")) install.packages("tm")
+
+```
+
+## ¿Qué es NLP?
+
+:::{.medium-par}
+El Procesamiento del Lenguaje Natural (NLP, por sus siglas en inglés)  se enfoca en la interacción entre el lenguaje de los computadores y el de los humanos.
+
+
+Considera tanto algoritmos como modelos que permiten a los computadores comprender, interpretar y generar el lenguaje humano de una manera que sea significativa y útil.
+
+Como podrán haber notado, este campo ha avanzado increíblemente en los últimos años.
+
+(Esta clase se centrará en avances previos a la revolución que significó ChatGPT)
+:::
+
+::::{.r-stack}
+
+:::{.fragment .fade-out}
+[<img src="imagenes/ELIZA_conversation.png" width="50%" />]{.center}
+:::
+
+:::{.fragment .fade-in-then-out}
+[<img src="imagenes/word_vector.png" width="50%" />]{.center}
+:::
+
+:::{.fragment .fade-in-then-out}
+[<img src="imagenes/embeddings.png" width="60%" />]{.center}
+:::
+
+
+:::{.fragment .fade-in-then-out}
+[<img src="imagenes/chatgpt.jpg" width="30%" />]{.center}
+:::
+
+::::
+
+
+## Importancia y aplicaciones de NLP
+
+::::{.r-stack}
+
+::: {.fade-out .fade-in-then-out .fragment }
+El NLP actualmente se encuentra en todas partes en internet, resultando fundamental en el panorama tecnológico actual:
+
+
+::: {.medium-par  }
+- **Análisis de Sentimiento**: Comprender el sentimiento público hacia productos o temas (p/e animotuitero INEGI).
+- **Traducción Automática**: Traducir texto de un idioma a otro (p/e Google translate).
+- **Chatbots y Asistentes Virtuales**: Permitir interacciones similares a las humanas con máquinas (p/e ChatGPT, Siri).
+- **Extracción de Información**: Extraer datos estructurados de texto no estructurado (p/e _web scraping_).
+- **Motores de Búsqueda**: Mejorar la relevancia de los resultados de búsqueda.
+- Autocorrectores, modelos de clasificación y un largo etcétera.
+:::
+
+:::
+
+::: {.fragment}
+
+[<img src="imagenes/ejemplos_nlp.png" width="70%" />]{.center}
+:::
+
+::::
+
+## Desafíos del Procesamiento del Lenguaje Natural 
+
+Se ha avanzado mucho en NLP, pero siguen habien múltiples desafíos, incluyendo:
+
+:::{.medium-par .incremental}
+- **Ambigüedad**: El lenguaje suele ser ambiguo, lo que lleva a dificultades en la interpretación (p/e homónimos).
+- **Calidad de los Datos y Sesgos**: Los modelos de NLP pueden estar sesgados debido a datos de entrenamiento sesgados (p/e ENE vs Censo).
+- **Comprensión del Contexto**: Comprender el contexto y el sarcasmo es complicado.
+- **Multilingüismo**: Manejar múltiples idiomas y dialectos de manera efectiva (acentos y eñes siempre un problema).
+- **Privacidad y Preocupaciones Éticas**: El NLP puede ser utilizado con fines no éticos (spam, bots, deepfakes).
+:::
+
+
+## Datos
+
+:::{.fragment}
+Para este curso trabajaremos con datos de los diarios La Razón y Público de España
+
+El archivo está en los links siguientes links: [acá](https://drive.google.com/drive/folders/1KQjyE2tKht7OWIZOJ1dyXKedtQdHjyxa?usp=sharing) o [acá](https://inechile.sharepoint.com/:f:/s/cienciadedatos/EtsXv7EPGoRHmv_hstSVCLUBr_ux4i2URQmoNvQh5raG7g?e=Im1tdd)
+:::
+
+:::{.fragment .medium-par}
+Dos columnas relevantes:
+
+1. cuerpo
+2. titular
+
+
+:::
+
+
+:::{.fragment}
+
+
+```{r, include=T, eval=F, echo=T}
+data <- read_csv("data/data_larazon_publico_v2.csv")
+```
+:::
+
+:::{.fragment}
+
+<img src="imagenes/ejemplo_dataset.png" width="700" />
+
+:::
+
+
+## Paquetes
+
+:::{.fragment .medium-par}
+En R existen varios paquetes para trabajar con datos de texto
+
+
+- tm
+- tidytext
+- stringr
+- spacyr (wrapper)
+- text2vec
+
+
+:::
+
+
+:::{.fragment}
+<img src="imagenes/logo_quanteda.png" width="400" />
+
+
+En este [sitio](https://tutorials.quanteda.io/) hay una documentación muy completa
+:::
+
+## Vectorizando el texto  {auto-animate="true"}
+
+
+:::{.incremental .medium-par}
+- El texto, tal cual, no se encuentra en un formato que sea entendible para un computador.
+
+- Como con los modelos de ML que practicamos, queremos encontrar una forma de que el texto
+termine siendo representado en una tabla.
+
+
+
+- Dos formas clásicas de lograrlo:
+
+:::
+
+:::{.fragment}
+**Bolsa de palabras y Word embeddings**
+  
+:::
+## Vectorizando el texto: Bolsa de palabras {auto-animate="true"}
+
+**Bolsa de palabras** [y Word embeddings]{.lightgray}
+
+:::{.incremental .medium-par}
+- Las bolsas de palabras son formas sencillas de vectorizar texto
+
+- La más simple consiste simplemente en contar el número de veces que se repite 
+cada palabra en el total de texto e ir incorporándolo en una tabla donde cada fila
+es un texto y cada columna una palabra
+- Veamos un ejemplo:
+:::
+
+:::{.fragment }
+```{r echo=T}
+
+ejemplo <- data.frame(text = c("Mi gato es un tirano en casa. Él es amo y señor.",
+                               "Soy esclavo de mi gato, pero lo amo.")) 
+dfm_ejemplo <- ejemplo %>% 
+  corpus() %>% 
+  tokens() %>% 
+  dfm()  
+
+dfm_ejemplo 
+```
+:::
+
+## Vectorizando el texto: Bolsa de palabras 
+**Bolsa de palabras** [y Word embeddings]{.lightgray}
+
+**Notas**
+
+:::{.fragment .medium-par}
+- Pueden notar que el orden de las palabras no es relevante en este sistema -> se
+pierde la secuencialidad del texto
+:::
+
+:::{.fragment }
+```{r echo=T}
+
+ejemplo2 <- data.frame(text = c("Amo el hecho de que te odio", # Malvado
+                               "Odio el hecho de que te amo"))# Romántico decepcionado
+dfm_ejemplo2 <- ejemplo2 %>% 
+  corpus() %>% # Un set de documentos es llamado un corpus
+  tokens() %>% 
+  dfm()  
+
+dfm_ejemplo2
+```
+:::
+
+## Vectorizando el texto: Bolsa de palabras 
+**Bolsa de palabras** [y Word embeddings]{.lightgray}
+
+**Notas**
+
+:::{.incremental .medium-par}
+- Acá nuestro _token_ de elección fue la palabra. Sin embargo, los tokens pueden
+ser otras combinaciones: carácteres, n-gramas, etc.
+
+  - Un n-grama es cada combinación de n palabras consecutivas en el texto. Repitiendo
+el mismo ejercicio con 2-gramas (o bigramas):
+:::
+:::{.fragment}
+```{r}
+dfm_ejemplo <- ejemplo2 %>% 
+  corpus() %>%  tokens() %>%
+  tokens_ngrams(n = 2) %>% dfm
+
+dfm_ejemplo 
+```
+:::
+
+:::{.fragment .medium-par}
+- Se recupera un poco la secuencialidad a cambio de mayor **dimensionalidad**
+
+:::
+
+## Vectorizando el texto: Bolsa de palabras 
+
+**Bolsa de palabras** [y Word embeddings]{.lightgray}
+
+**Notas**
+
+::::{.fragment  .medium-par}
+
+- Mientras más palabras únicas existan en nuestro corpus, más columnas tendrá nuestra
+tabla y estará más poblada por ceros.
+  - Una tabla con un alto porcentaje de ceros es llamada matriz dispersa o _sparse matrix_
+
+- Juntemos los dos ejemplos anteriores y veamos cómo aumenta la dimensionalidad:
+
+::::
+
+::::{.r-stack}
+:::{.fragment .fade-in-then-out}
+```{r echo=T}
+dfm_ejemplo <- ejemplo %>% bind_rows(ejemplo2) %>% 
+  corpus() %>%  tokens()  %>%
+  dfm
+
+dfm_ejemplo 
+```
+:::
+
+:::{.fragment .fade-in-then-out}
+```{r echo=T}
+
+dfm_ejemplo <- ejemplo %>% bind_rows(ejemplo2) %>% 
+  corpus() %>%  tokens() %>%
+  tokens_ngrams(n = 2 ) %>%
+  dfm %>% print(max_nfeat = 6)
+
+```
+:::
+
+::::
+
+## Vectorizando el texto: Bolsa de palabras 
+
+**Bolsa de palabras** [y Word embeddings]{.lightgray}
+
+**Notas**
+
+
+:::{.incremental .medium-par}
+- Solo tenemos 4 frases cortas y nuestra matriz ya tiene 23-29 columnas.
+
+- Pueden imaginar lo rápido que esto puede descontrolarse con más ejemplos y textos más largos
+
+- Además, palabras comunes toman mucha relevancia en nuestra matriz, minimizando el impacto
+de palabras que entregan más información.
+
+- Una forma de vectorizar texto que se hace cargo parcialmente es TF-IDF:
+
+:::
+
+
+
+
+
+
+
+
+##  Vectorizando el texto: Bolsa de palabras
+
+
+  
+
+
+
+
+## Introducción a NLP
+
+
+## Vectorizando texto
+
+## Word embeddings
+
+## Transformers
+
+
+
+#
+
+[]{.linea-superior} 
+[]{.linea-inferior} 
+
+<img src="imagenes/logo_portada2.png" width="20%"/>  
+
+[**Mentoría Censo: Codificación**]{.big-par .center-justified}
+
+[**Proyecto Ciencia de Datos**]{.big-par .center-justified}
+
+[**Introducción al Procesamiento de Lenguaje Natural**]{.big-par .center-justified}
+
+[**octubre 2023**]{.big-par .center-justified}
+
+
+
