@@ -8,7 +8,7 @@
 <link href="clase-nlp_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="clase-nlp_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
 <link href="clase-nlp_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.3.353">
+  <meta name="generator" content="quarto-1.3.450">
 
   <title>clase-nlp</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -403,11 +403,10 @@
 # TODO: this does not work
  ![](imagenes/logo_portada2.png){.center style="width: 20%;"}   
 --->
-<p><span class="linea-superior"></span> <span class="linea-inferior"></span></p>
 <!---
  <img src="imagenes/logo_portada2.png" style="width: 20%"/>  
 --->
-<p><img src="imagenes/logo_portada2.png" width="20%"></p>
+<p><span class="center-justified"><img src="imagenes/logo_portada2.png" width="20%"></span></p>
 <p><span class="big-par center-justified"><strong>Mentoría Censo: Codificación</strong></span></p>
 <p><span class="big-par center-justified"><strong>Proyecto Ciencia de Datos</strong></span></p>
 <p><span class="big-par center-justified"><strong>Introducción al Procesamiento de Lenguaje Natural</strong></span></p>
@@ -435,16 +434,16 @@
 </div>
 <div class="r-stack">
 <div class="fragment fade-out">
-<p><span class="center"><img src="imagenes/ELIZA_conversation.png" width="50%"></span></p>
+<p><img src="imagenes/ELIZA_conversation.png" width="50%"></p>
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="center"><img src="imagenes/word_vector.png" width="50%"></span></p>
+<p><img src="imagenes/word_vector.png" width="50%"></p>
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="center"><img src="imagenes/embeddings.png" width="60%"></span></p>
+<p><img src="imagenes/embeddings.png" width="60%"></p>
 </div>
 <div class="fragment fade-in-then-out">
-<p><span class="center"><img src="imagenes/chatgpt.jpg" width="30%"></span></p>
+<p><img src="imagenes/chatgpt.jpg" width="30%"></p>
 </div>
 </div>
 </section>
@@ -465,7 +464,7 @@
 </div>
 </div>
 <div class="fragment">
-<p><span class="center"><img src="imagenes/ejemplos_nlp.png" width="70%"></span></p>
+<p><img src="imagenes/ejemplos_nlp.png" width="70%"></p>
 </div>
 </div>
 </section>
@@ -531,16 +530,16 @@
 </ul>
 </div>
 <div class="fragment">
-<p><strong>Bolsa de palabras y Word embeddings</strong></p>
+<p><strong>Vectorización en base a frecuencias y Word embeddings</strong></p>
 </div>
 </section>
-<section id="vectorizando-el-texto-bolsa-de-palabras" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Vectorizando el texto: Bolsa de palabras</h2>
-<p><strong>Bolsa de palabras</strong> <span class="lightgray">y Word embeddings</span></p>
+<section id="vectorizando-el-texto-en-base-a-frecuencias" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Vectorizando el texto: en base a frecuencias</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <div class="medium-par">
 <ul>
 <li class="fragment"><p>Las bolsas de palabras son formas sencillas de vectorizar texto</p></li>
-<li class="fragment"><p>La más simple consiste simplemente en contar el número de veces que se repite cada palabra en el total de texto e ir incorporándolo en una tabla donde cada fila es un texto y cada columna una palabra</p></li>
+<li class="fragment"><p>La más simple es la <strong>bolsa de palabras</strong>. Consiste simplemente en contar el número de veces que se repite cada palabra en el total de texto e ir incorporándolo en una tabla donde cada fila es un texto y cada columna una palabra</p></li>
 <li class="fragment"><p>Veamos un ejemplo:</p></li>
 </ul>
 </div>
@@ -565,9 +564,9 @@ docs    mi gato es un tirano en casa . él amo
 </div>
 </div>
 </section>
-<section id="vectorizando-el-texto-bolsa-de-palabras-1" class="slide level2">
-<h2>Vectorizando el texto: Bolsa de palabras</h2>
-<p><strong>Bolsa de palabras</strong> <span class="lightgray">y Word embeddings</span></p>
+<section id="vectorizando-el-texto-en-base-a-frecuencias-1" class="slide level2">
+<h2>Vectorizando el texto: en base a frecuencias</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Notas</strong></p>
 <div class="fragment medium-par">
 <ul>
@@ -594,9 +593,9 @@ docs    amo el hecho de que te odio
 </div>
 </div>
 </section>
-<section id="vectorizando-el-texto-bolsa-de-palabras-2" class="slide level2">
-<h2>Vectorizando el texto: Bolsa de palabras</h2>
-<p><strong>Bolsa de palabras</strong> <span class="lightgray">y Word embeddings</span></p>
+<section id="vectorizando-el-texto-en-base-a-frecuencias-2" class="slide level2">
+<h2>Vectorizando el texto: en base a frecuencias</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Notas</strong></p>
 <div class="medium-par">
 <ul>
@@ -623,9 +622,9 @@ docs    amo_el el_hecho hecho_de de_que que_te te_odio odio_el te_amo
 </ul>
 </div>
 </section>
-<section id="vectorizando-el-texto-bolsa-de-palabras-3" class="slide level2">
-<h2>Vectorizando el texto: Bolsa de palabras</h2>
-<p><strong>Bolsa de palabras</strong> <span class="lightgray">y Word embeddings</span></p>
+<section id="vectorizando-el-texto-en-base-a-frecuencias-3" class="slide level2">
+<h2>Vectorizando el texto: en base a frecuencias</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Notas</strong></p>
 <div class="fragment medium-par">
 <ul>
@@ -676,24 +675,171 @@ docs    mi_gato gato_es es_un un_tirano tirano_en en_casa
 </div>
 </div>
 </section>
-<section id="vectorizando-el-texto-bolsa-de-palabras-4" class="slide level2">
-<h2>Vectorizando el texto: Bolsa de palabras</h2>
+<section id="vectorizando-el-texto-en-base-a-frecuencias-4" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Vectorizando el texto: en base a frecuencias</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<p><strong>Notas</strong></p>
+<div class="medium-par">
+<ul>
+<li class="fragment"><p>Solo tenemos 4 frases cortas y nuestra matriz ya tiene 23-29 columnas.</p></li>
+<li class="fragment"><p>Pueden imaginar lo rápido que esto puede descontrolarse con más ejemplos y textos más largos</p></li>
+<li class="fragment"><p>Además, palabras comunes toman mucha relevancia en nuestra matriz, minimizando el impacto de palabras que entregan más información.</p></li>
+<li class="fragment"><p>Una forma de vectorizar texto que se hace cargo parcialmente es TF-IDF:</p></li>
+</ul>
+<div class="fragment">
+<p><strong>Term frequency - Inverse Document Frequency</strong></p>
+</div>
+</div>
 </section>
-<section id="introducción-a-nlp" class="slide level2">
-<h2>Introducción a NLP</h2>
+<section id="vectorizando-el-texto-en-base-a-frecuencias-5" class="slide level2" data-auto-animate="true">
+<h2 data-id="quarto-animate-title">Vectorizando el texto: en base a frecuencias</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<p><strong>Term frequency - Inverse Document Frequency</strong></p>
+<div class="fragment">
+<p>TF = n° de veces que token t aparece en el documento d / Número total de tokens en documento d</p>
+</div>
+<div class="fragment">
+<p>IDF = log(N° total de documentos / N° de documentos que contienen el token t)</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+TF-IDF(t,d) = TF(t,d)*IDF(t)
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Lo importante es que esta medida le quita importancia a palabras que aparecen en todos los documentos. Así, los términos que aparecen en un documento específico, pero no en el resto del corpus, serán considerados más relevantes.</p>
+</div>
+<div class="fragment">
+<p>Sin embargo, no se hace cargo del contexto en que se encuentran las palabras.</p>
+</div>
 </section>
-<section id="vectorizando-texto" class="slide level2">
-<h2>Vectorizando texto</h2>
+<section id="vectorizando-el-texto-en-base-a-frecuencias-6" class="slide level2">
+<h2>Vectorizando el texto: en base a frecuencias</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<p><strong>Term frequency - Inverse Document Frequency</strong></p>
+<p>La implementación es sencilla: agregamos <em>dfm_tfidf</em> luego de <em>dfm</em></p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>ejemplo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">"La casa es grande."</span>,</span>
+<span id="cb12-2"><a href="#cb12-2"></a>                               <span class="st">"El árbol es chico."</span>,</span>
+<span id="cb12-3"><a href="#cb12-3"></a>                               <span class="st">"La cama es blanda."</span>,</span>
+<span id="cb12-4"><a href="#cb12-4"></a>                               <span class="st">"El pollo es sabroso."</span>,</span>
+<span id="cb12-5"><a href="#cb12-5"></a>                               <span class="st">"La cama es grande."</span>)) </span>
+<span id="cb12-6"><a href="#cb12-6"></a></span>
+<span id="cb12-7"><a href="#cb12-7"></a>dfm_ejemplo <span class="ot">&lt;-</span> ejemplo  <span class="sc">%&gt;%</span> </span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span>  <span class="fu">tokens</span>()  <span class="sc">%&gt;%</span> dfm <span class="sc">%&gt;%</span> </span>
+<span id="cb12-9"><a href="#cb12-9"></a>  dfm_tfidf <span class="sc">%&gt;%</span> <span class="fu">print</span>(<span class="at">max_nfeat =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Document-feature matrix of: 5 documents, 12 features (58.33% sparse) and 0 docvars.
+       features
+docs           la    casa es  grande .      el   árbol   chico
+  text1 0.2218487 0.69897  0 0.39794 0 0       0       0      
+  text2 0         0        0 0       0 0.39794 0.69897 0.69897
+  text3 0.2218487 0        0 0       0 0       0       0      
+  text4 0         0        0 0       0 0.39794 0       0      
+  text5 0.2218487 0        0 0.39794 0 0       0       0      
+[ reached max_nfeat ... 4 more features ]</code></pre>
+</div>
+</div>
+</div>
 </section>
-<section id="word-embeddings" class="slide level2">
-<h2>Word embeddings</h2>
+<section id="paréntesis-preprocesamiento-de-texto" class="slide level2">
+<h2>Paréntesis: preprocesamiento de texto</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<div class="medium-par">
+<ul>
+<li class="fragment">Mencionamos que en la medida que agregamos más documentos y términos, la dimensionalidad del problema comienza a crecer considerablemente.</li>
+<li class="fragment">Esto puede empezar a representar un problema en términos de costo computacional de realizar las operaciones que queramos realizar.</li>
+<li class="fragment">Podemos minimizar el problema preprocesando el texto.</li>
+<li class="fragment">Algunos pasos clásicos:
+<ul>
+<li class="fragment">Eliminar signos de puntuación</li>
+<li class="fragment">Eliminar símbolos extraños</li>
+<li class="fragment">Eliminar palabras poco significativas (stopwords)</li>
+<li class="fragment">Eliminar palabras con menos de 3 caracteres</li>
+<li class="fragment">Eliminar palabras que aparecen menos de 10 veces en el corpus</li>
+</ul></li>
+</ul>
+</div>
 </section>
-<section id="transformers" class="slide level2">
-<h2>Transformers</h2>
+<section id="paréntesis-preprocesamiento-de-texto-1" class="slide level2">
+<h2>Paréntesis: preprocesamiento de texto</h2>
+<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb14-2"><a href="#cb14-2"></a>tokens_data_complete <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">select</span>(<span class="at">text =</span> cuerpo) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">sample_frac</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> <span class="fu">dfm</span>() <span class="sc">%&gt;%</span> dim</span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">print</span>(tokens_data_complete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  11685 118903</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>tokens_data_proc <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">select</span>(<span class="at">text =</span> cuerpo) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">sample_frac</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">tokens</span>( <span class="at">remove_punct =</span> <span class="cn">TRUE</span>, <span class="at">remove_symbols =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">tokens_select</span>( <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">"es"</span>), <span class="at">selection =</span> <span class="st">"remove"</span>, <span class="at">min_nchar=</span>3L)  </span>
+<span id="cb16-7"><a href="#cb16-7"></a></span>
+<span id="cb16-8"><a href="#cb16-8"></a>dfm2 <span class="ot">&lt;-</span> tokens_data_proc <span class="sc">%&gt;%</span> </span>
+<span id="cb16-9"><a href="#cb16-9"></a>  <span class="fu">dfm</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">10</span>) </span>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="fu">print</span>(dfm2 <span class="sc">%&gt;%</span> dim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 11685 22785</code></pre>
+</div>
+</div>
+</section>
+<section id="vectorizando-el-texto-word-embeddings" class="slide level2">
+<h2>Vectorizando el texto: word embeddings</h2>
+<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
+<div class="medium-par">
+<ul>
+<li class="fragment">Los <em>word embeddings</em> son una forma de representación de las palabras, que busca mantener el sentido semántico de las palabras, mapeándolas como vectores en un espacio multi-dimensional.</li>
+<li class="fragment">A diferencia de la vectorización en base a frecuencias, estos vectores son densos y de largo fijo.</li>
+<li class="fragment">Consideran la relación con otras palabras del corpus, lo que permite agregar información de contexto y semántico.</li>
+<li class="fragment">La idea clave es la siguiente: palabras que se usan en contextos similares, tendrán representaciones vectoriales similares.
+<ul>
+<li class="fragment">Es decir, ocuparán un espacio similar dentro del espacio vectorial.</li>
+</ul></li>
+<li class="fragment">Además capturan la relación semántica de las palabras: “reina” y “rey” tendrán una distancia similar a “mujer” y “hombre”.
+<ul>
+<li class="fragment">podemos aplicar ecuaciones como “rey - hombre + mujer”, lo que nos entregaría la palabra “reina” si estos embeddings fueron entrenados con un corpus suficientemente grande.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="vectorizando-el-texto-word-embeddings-1" class="slide level2">
+<h2>Vectorizando el texto: word embeddings</h2>
+<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
+<p><img src="imagenes/embeddings.png" width="90%"></p>
+</section>
+<section id="vectorizando-el-texto-word-embeddings-2" class="slide level2">
+<h2>Vectorizando el texto: word embeddings</h2>
+<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
+<div class="columns">
+<div class="column small-par" style="flex: 0.55">
+<ul>
+<li class="fragment"><p>No nos vamos a detener a ver cómo se entrenan, ya que existen <em>embeddings</em> pre-entrenados con cantidades de texto muy superiores a las que podríamos entrenar nosotros.</p></li>
+<li class="fragment"><p><a href="https://github.com/dccuchile/spanish-word-embeddings">En el siguiente link</a> podemos encontrar <em>embeddings</em> de 300 dimensiones entrenados con texto en español.</p></li>
+<li class="fragment"><p>Esto implica que cada palabra será representada por un vector que contiene 300 números distintos. Las dimensiones no tienen una interpretación, solo sabemos que vectores parecidos hacen alusión a palabras parecidas.</p></li>
+</ul>
+</div><div class="column" style="flex: 0.4">
+<p><img src="imagenes/dcc_embeddings.png" width="100%"></p>
+</div>
+</div>
+</section>
+<section id="vectorizando-el-texto-word-embeddings-3" class="slide level2">
+<h2>Vectorizando el texto: word embeddings</h2>
+<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
+<ul>
+<li>Para <em>word embeddings</em> veremos su implementación en Python, ya que es donde hay más desarrollo tanto de NLP como de <em>Deep Learning</em></li>
+</ul>
 </section></section>
 <section id="section-1" class="title-slide slide level1 center">
 <h1></h1>
-<p><span class="linea-superior"></span> <span class="linea-inferior"></span></p>
 <p><img src="imagenes/logo_portada2.png" width="20%"></p>
 <p><span class="big-par center-justified"><strong>Mentoría Censo: Codificación</strong></span></p>
 <p><span class="big-par center-justified"><strong>Proyecto Ciencia de Datos</strong></span></p>
