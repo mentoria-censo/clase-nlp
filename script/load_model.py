@@ -4,18 +4,13 @@ from numpy import zeros
 from gensim.models import fasttext
 
 
-def get_modelo(tipo_modelo):
-    if tipo_modelo == 'chico':
-        wordvectors2 = fasttext.load_facebook_model('data/input/modelos/embeddings-s-model.bin') 
-    elif tipo_modelo == 'neo-grande':
-        wordvectors2 = fasttext.load_facebook_model('data/input/modelos/embeddings-new_large-general_3B_fasttext.bin')
-        
-    elif tipo_modelo == 'grande':
-        wordvectors2 = fasttext.load_facebook_model('data/input/modelos/embeddings-l-model.bin')
-    else:
-        return print('Error: ingreso tipo_modelo "chico" o "grande"')
+model = fasttext.load_facebook_model('data/embeddings-s-model.bin')  
+model = fasttext.load_facebook_model('data/embeddings-l-model.bin')  
+wv = model.wv 
 
-    return wordvectors2
+wv.most_similar(positive=['mujer', 'rey'], negative=['hombre'])
+wv.most_similar(positive=['perro'])
 
 
-
+wv.similarity('animal', 'hipopótamo')
+wv.similarity('nación', 'hipopótamo')

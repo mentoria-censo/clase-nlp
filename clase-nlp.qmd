@@ -167,7 +167,7 @@ En R existen varios paquetes para trabajar con datos de texto
 En este [sitio](https://tutorials.quanteda.io/) hay una documentación muy completa
 :::
 
-## Vectorizando el texto {auto-animate="true"}
+## Vectorizando el texto
 
 ::: {.incremental .medium-par}
 -   El texto, tal cual, no se encuentra en un formato que sea entendible para un computador.
@@ -181,9 +181,7 @@ En este [sitio](https://tutorials.quanteda.io/) hay una documentación muy compl
 **Vectorización en base a frecuencias y Word embeddings**
 :::
 
-## Vectorizando el texto: en base a frecuencias {auto-animate="true"}
-
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+## Vectorizando el texto: en base a frecuencias 
 
 ::: {.incremental .medium-par}
 -   Las bolsas de palabras son formas sencillas de vectorizar texto
@@ -209,7 +207,7 @@ dfm_ejemplo
 
 ## Vectorizando el texto: en base a frecuencias
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 **Notas**
 
@@ -233,7 +231,7 @@ dfm_ejemplo2
 
 ## Vectorizando el texto: en base a frecuencias
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 **Notas**
 
@@ -259,7 +257,7 @@ dfm_ejemplo
 
 ## Vectorizando el texto: en base a frecuencias
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 **Notas**
 
@@ -294,7 +292,7 @@ dfm_ejemplo <- ejemplo %>% bind_rows(ejemplo2) %>%
 
 ## Vectorizando el texto: en base a frecuencias {auto-animate="true"}
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 **Notas**
 
@@ -314,7 +312,7 @@ dfm_ejemplo <- ejemplo %>% bind_rows(ejemplo2) %>%
 
 ## Vectorizando el texto: en base a frecuencias {auto-animate="true"}
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 **Term frequency - Inverse Document Frequency**
 
@@ -342,7 +340,7 @@ Sin embargo, no se hace cargo del contexto en que se encuentran las palabras.
 
 ## Vectorizando el texto: en base a frecuencias
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 **Term frequency - Inverse Document Frequency**
 
@@ -366,7 +364,7 @@ dfm_ejemplo <- ejemplo  %>%
 
 ## Paréntesis: preprocesamiento de texto
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 ::: {.incremental .medium-par}
 -   Mencionamos que en la medida que agregamos más documentos y términos, la dimensionalidad del problema comienza a crecer considerablemente.
@@ -382,7 +380,7 @@ dfm_ejemplo <- ejemplo  %>%
 
 ## Paréntesis: preprocesamiento de texto
 
-**Vectorización en base a frecuencias** [y Word embeddings]{.lightgray}
+
 
 ```{r echo=T}
 set.seed(123)
@@ -408,8 +406,6 @@ print(dfm2 %>% dim)
 
 ## Vectorizando el texto: word embeddings
 
-[Vectorización en base a frecuencias y]{.lightgray} **Word embeddings**
-
 ::: {.incremental .medium-par}
 -   Los *word embeddings* son una forma de representación de las palabras, que busca mantener el sentido semántico de las palabras, mapeándolas como vectores en un espacio multi-dimensional.
 -   A diferencia de la vectorización en base a frecuencias, estos vectores son densos y de largo fijo.
@@ -422,13 +418,32 @@ print(dfm2 %>% dim)
 
 ## Vectorizando el texto: word embeddings
 
-[Vectorización en base a frecuencias y]{.lightgray} **Word embeddings**
+
+
+:::: r-stack
+
+
+![](imagenes/reina.png){.fragment .fade-out width="90%"}
+
+
+
+![](imagenes/most_similar_perro.png){.fragment .fade-in-then-out width="90%"}
+
+
+
+::::
+
+
+
+## Vectorizando el texto: word embeddings
+
+
 
 <img src="imagenes/embeddings.png" width="90%"/>
 
 ## Vectorizando el texto: word embeddings
 
-[Vectorización en base a frecuencias y]{.lightgray} **Word embeddings**
+
 
 ::: columns
 ::: {.column .small-par .incremental style="flex: 0.55"}
@@ -447,12 +462,18 @@ print(dfm2 %>% dim)
 
 ## Vectorizando el texto: word embeddings
 
-[Vectorización en base a frecuencias y]{.lightgray} **Word embeddings**
 
-- Para _word embeddings_ veremos su implementación en Python, ya que es donde
+
+
+::: {.incremental .medium-par}
+- Para _word embeddings_ los implementaremos en Python, ya que es donde
 hay más desarrollo tanto de NLP como de _Deep Learning_
 
+- No entraremos en más detalle, ya que lo más relevante es que podemos inyectar los
+_embeddings_ dentro de una arquitectura de redes neuronales de forma de "entregarle" a nuestra red un conocimiento base avanzado del significado de las palabras, apoyando y mejorando el sistema.
 
+- La implementación, afortunadamente, es sencilla.
+:::
 
 # 
 
