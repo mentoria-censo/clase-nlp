@@ -362,7 +362,7 @@ dfm_ejemplo <- ejemplo  %>%
 ```
 :::
 
-## Paréntesis: preprocesamiento de texto
+## Preprocesamiento de texto
 
 
 
@@ -378,7 +378,7 @@ dfm_ejemplo <- ejemplo  %>%
     -   Eliminar palabras que aparecen menos de 10 veces en el corpus
 :::
 
-## Paréntesis: preprocesamiento de texto
+## Preprocesamiento de texto
 
 
 
@@ -388,8 +388,8 @@ tokens_data_complete <- data %>%
   select(text = cuerpo) %>% 
   sample_frac(0.2) %>% 
   corpus() %>% 
-  tokens() %>% dfm() %>% dim
-print(tokens_data_complete)
+  tokens()  
+print(tokens_data_complete %>% dfm() %>% dim)
 
 tokens_data_proc <- data %>% 
   select(text = cuerpo) %>% 
@@ -398,11 +398,56 @@ tokens_data_proc <- data %>%
   tokens( remove_punct = TRUE, remove_symbols = TRUE) %>% 
   tokens_select( pattern = stopwords("es"), selection = "remove", min_nchar=3L)  
 
-dfm2 <- tokens_data_proc %>% 
+dfm_sample <- tokens_data_proc %>% 
   dfm() %>% 
   dfm_trim(min_termfreq = 10) 
-print(dfm2 %>% dim)
+print(dfm_sample %>% dim)
 ```
+
+
+## Explorando datasets
+
+```{r echo=T , fig.height=3 }
+largo_textos <-  map_int(tokens_data_proc, length)
+df_largo <- data.frame(largo = largo_textos)
+df_largo %>% 
+  ggplot(aes(x = largo)) +
+  geom_histogram(binwidth = 15) +
+  theme_bw()
+
+print(summary(df_largo$largo))
+```
+
+## Explorando datasets
+
+Palabras más y menos comunes
+
+::: fragment
+```{r echo=T}
+dfm_sample %>% 
+  quanteda::topfeatures(n = 10)
+```
+:::
+
+
+::: fragment
+```{r echo=T}
+dfm_sample %>% 
+  quanteda::topfeatures(n = 10, decreasing = F)
+```
+:::
+
+## Explorando datasets
+ 
+Búsqueda de palabras clave:
+
+```{r echo=T}
+comentarios_eta <-  tokens_data_complete %>% 
+  kwic( pattern = "eta",  window = 7) # <<
+
+head(comentarios_eta)
+```
+
 
 ## Vectorizando el texto: word embeddings
 
@@ -474,6 +519,31 @@ _embeddings_ dentro de una arquitectura de redes neuronales de forma de "entrega
 
 - La implementación, afortunadamente, es sencilla.
 :::
+
+## La Tarea
+
+::: {.incremental .medium-par}
+
+- Recapitulando:
+  - Tenemos un conocimiento introductorio de Machine Learning y NLP
+  - Por lo tanto, ya podemos aplicar el conocimiento adquirido a datos de CAENES.
+  - Similar a la vez anterior, les entregaré un set de entrenamiento de training y de
+  test (esta vez con sus etiquetas).
+  - El plan es aplicar lo aprendido en la sección de vectorización de texto en base a
+  frecuencias para generar el mejor modelo posible.
+  - Es relevante ver si sus modelos pueden superar el rendimiento actual de las 
+  redes neuronales con el volumen de datos que tenemos actualmente
+  - Algunos tips:
+    - Datos de oficio y tareas podrían incorporarse concatenando las glosas
+      - Fíjense que queden bien concatenadas (que la última palabra y la primera no
+      queden juntadas con un "_")
+    - Recuerden preprocesar el texto
+    - Pueden probar distintos modelos, distintos enfoques (bolsa de palabras vs td-idf),
+    distintos hiperparámetros.
+
+:::
+
+
 
 # 
 

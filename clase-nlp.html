@@ -520,8 +520,8 @@
 <p>En este <a href="https://tutorials.quanteda.io/">sitio</a> hay una documentación muy completa</p>
 </div>
 </section>
-<section id="vectorizando-el-texto" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Vectorizando el texto</h2>
+<section id="vectorizando-el-texto" class="slide level2">
+<h2>Vectorizando el texto</h2>
 <div class="medium-par">
 <ul>
 <li class="fragment"><p>El texto, tal cual, no se encuentra en un formato que sea entendible para un computador.</p></li>
@@ -533,9 +533,8 @@
 <p><strong>Vectorización en base a frecuencias y Word embeddings</strong></p>
 </div>
 </section>
-<section id="vectorizando-el-texto-en-base-a-frecuencias" class="slide level2" data-auto-animate="true">
-<h2 data-id="quarto-animate-title">Vectorizando el texto: en base a frecuencias</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<section id="vectorizando-el-texto-en-base-a-frecuencias" class="slide level2">
+<h2>Vectorizando el texto: en base a frecuencias</h2>
 <div class="medium-par">
 <ul>
 <li class="fragment"><p>Las bolsas de palabras son formas sencillas de vectorizar texto</p></li>
@@ -545,14 +544,14 @@
 </div>
 <div class="fragment">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy" data-id="quarto-animate-code"><code class="sourceCode r hljs"><span id="cb3-1" class="hljs-ln-code"><a href="#cb3-1"></a>ejemplo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">"Mi gato es un tirano en casa. Él es amo y señor."</span>,</span>
-<span id="cb3-2" class="hljs-ln-code"><a href="#cb3-2"></a>                               <span class="st">"Soy esclavo de mi gato, pero lo amo."</span>)) </span>
-<span id="cb3-3" class="hljs-ln-code"><a href="#cb3-3"></a>dfm_ejemplo <span class="ot">&lt;-</span> ejemplo <span class="sc">%&gt;%</span> </span>
-<span id="cb3-4" class="hljs-ln-code"><a href="#cb3-4"></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb3-5" class="hljs-ln-code"><a href="#cb3-5"></a>  <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb3-6" class="hljs-ln-code"><a href="#cb3-6"></a>  <span class="fu">dfm</span>()  </span>
-<span id="cb3-7" class="hljs-ln-code"><a href="#cb3-7"></a></span>
-<span id="cb3-8" class="hljs-ln-code"><a href="#cb3-8"></a>dfm_ejemplo </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>ejemplo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">text =</span> <span class="fu">c</span>(<span class="st">"Mi gato es un tirano en casa. Él es amo y señor."</span>,</span>
+<span id="cb3-2"><a href="#cb3-2"></a>                               <span class="st">"Soy esclavo de mi gato, pero lo amo."</span>)) </span>
+<span id="cb3-3"><a href="#cb3-3"></a>dfm_ejemplo <span class="ot">&lt;-</span> ejemplo <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">dfm</span>()  </span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>dfm_ejemplo </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Document-feature matrix of: 2 documents, 18 features (38.89% sparse) and 0 docvars.
        features
@@ -566,7 +565,6 @@ docs    mi gato es un tirano en casa . él amo
 </section>
 <section id="vectorizando-el-texto-en-base-a-frecuencias-1" class="slide level2">
 <h2>Vectorizando el texto: en base a frecuencias</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Notas</strong></p>
 <div class="fragment medium-par">
 <ul>
@@ -595,7 +593,6 @@ docs    amo el hecho de que te odio
 </section>
 <section id="vectorizando-el-texto-en-base-a-frecuencias-2" class="slide level2">
 <h2>Vectorizando el texto: en base a frecuencias</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Notas</strong></p>
 <div class="medium-par">
 <ul>
@@ -624,7 +621,6 @@ docs    amo_el el_hecho hecho_de de_que que_te te_odio odio_el te_amo
 </section>
 <section id="vectorizando-el-texto-en-base-a-frecuencias-3" class="slide level2">
 <h2>Vectorizando el texto: en base a frecuencias</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Notas</strong></p>
 <div class="fragment medium-par">
 <ul>
@@ -677,7 +673,6 @@ docs    mi_gato gato_es es_un un_tirano tirano_en en_casa
 </section>
 <section id="vectorizando-el-texto-en-base-a-frecuencias-4" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Vectorizando el texto: en base a frecuencias</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Notas</strong></p>
 <div class="medium-par">
 <ul>
@@ -693,7 +688,6 @@ docs    mi_gato gato_es es_un un_tirano tirano_en en_casa
 </section>
 <section id="vectorizando-el-texto-en-base-a-frecuencias-5" class="slide level2" data-auto-animate="true">
 <h2 data-id="quarto-animate-title">Vectorizando el texto: en base a frecuencias</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Term frequency - Inverse Document Frequency</strong></p>
 <div class="fragment">
 <p>TF = n° de veces que token t aparece en el documento d / Número total de tokens en documento d</p>
@@ -715,7 +709,6 @@ TF-IDF(t,d) = TF(t,d)*IDF(t)
 </section>
 <section id="vectorizando-el-texto-en-base-a-frecuencias-6" class="slide level2">
 <h2>Vectorizando el texto: en base a frecuencias</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
 <p><strong>Term frequency - Inverse Document Frequency</strong></p>
 <p>La implementación es sencilla: agregamos <em>dfm_tfidf</em> luego de <em>dfm</em></p>
 <div class="fragment">
@@ -743,9 +736,8 @@ docs           la    casa es  grande .      el   árbol   chico
 </div>
 </div>
 </section>
-<section id="paréntesis-preprocesamiento-de-texto" class="slide level2">
-<h2>Paréntesis: preprocesamiento de texto</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<section id="preprocesamiento-de-texto" class="slide level2">
+<h2>Preprocesamiento de texto</h2>
 <div class="medium-par">
 <ul>
 <li class="fragment">Mencionamos que en la medida que agregamos más documentos y términos, la dimensionalidad del problema comienza a crecer considerablemente.</li>
@@ -762,17 +754,16 @@ docs           la    casa es  grande .      el   árbol   chico
 </ul>
 </div>
 </section>
-<section id="paréntesis-preprocesamiento-de-texto-1" class="slide level2">
-<h2>Paréntesis: preprocesamiento de texto</h2>
-<p><strong>Vectorización en base a frecuencias</strong> <span class="lightgray">y Word embeddings</span></p>
+<section id="preprocesamiento-de-texto-1" class="slide level2">
+<h2>Preprocesamiento de texto</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb14-2"><a href="#cb14-2"></a>tokens_data_complete <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> </span>
 <span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">select</span>(<span class="at">text =</span> cuerpo) <span class="sc">%&gt;%</span> </span>
 <span id="cb14-4"><a href="#cb14-4"></a>  <span class="fu">sample_frac</span>(<span class="fl">0.2</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">corpus</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">tokens</span>() <span class="sc">%&gt;%</span> <span class="fu">dfm</span>() <span class="sc">%&gt;%</span> dim</span>
-<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">print</span>(tokens_data_complete)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="fu">tokens</span>()  </span>
+<span id="cb14-7"><a href="#cb14-7"></a><span class="fu">print</span>(tokens_data_complete <span class="sc">%&gt;%</span> <span class="fu">dfm</span>() <span class="sc">%&gt;%</span> dim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1]  11685 118903</code></pre>
 </div>
@@ -783,18 +774,90 @@ docs           la    casa es  grande .      el   árbol   chico
 <span id="cb16-5"><a href="#cb16-5"></a>  <span class="fu">tokens</span>( <span class="at">remove_punct =</span> <span class="cn">TRUE</span>, <span class="at">remove_symbols =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb16-6"><a href="#cb16-6"></a>  <span class="fu">tokens_select</span>( <span class="at">pattern =</span> <span class="fu">stopwords</span>(<span class="st">"es"</span>), <span class="at">selection =</span> <span class="st">"remove"</span>, <span class="at">min_nchar=</span>3L)  </span>
 <span id="cb16-7"><a href="#cb16-7"></a></span>
-<span id="cb16-8"><a href="#cb16-8"></a>dfm2 <span class="ot">&lt;-</span> tokens_data_proc <span class="sc">%&gt;%</span> </span>
+<span id="cb16-8"><a href="#cb16-8"></a>dfm_sample <span class="ot">&lt;-</span> tokens_data_proc <span class="sc">%&gt;%</span> </span>
 <span id="cb16-9"><a href="#cb16-9"></a>  <span class="fu">dfm</span>() <span class="sc">%&gt;%</span> </span>
 <span id="cb16-10"><a href="#cb16-10"></a>  <span class="fu">dfm_trim</span>(<span class="at">min_termfreq =</span> <span class="dv">10</span>) </span>
-<span id="cb16-11"><a href="#cb16-11"></a><span class="fu">print</span>(dfm2 <span class="sc">%&gt;%</span> dim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-11"><a href="#cb16-11"></a><span class="fu">print</span>(dfm_sample <span class="sc">%&gt;%</span> dim)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 11685 22785</code></pre>
 </div>
 </div>
 </section>
+<section id="explorando-datasets" class="slide level2">
+<h2>Explorando datasets</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>largo_textos <span class="ot">&lt;-</span>  <span class="fu">map_int</span>(tokens_data_proc, length)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>df_largo <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">largo =</span> largo_textos)</span>
+<span id="cb18-3"><a href="#cb18-3"></a>df_largo <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> largo)) <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">15</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img data-src="clase-nlp_files/figure-revealjs/unnamed-chunk-10-1.png" width="960"></p>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(df_largo<span class="sc">$</span>largo))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    3.0   187.0   290.0   351.7   440.0  5153.0 </code></pre>
+</div>
+</div>
+</section>
+<section id="explorando-datasets-1" class="slide level2">
+<h2>Explorando datasets</h2>
+<p>Palabras más y menos comunes</p>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>dfm_sample <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  quanteda<span class="sc">::</span><span class="fu">topfeatures</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>gobierno personas   españa  podemos  partido     años    horas      dos 
+   23077    15222    11588    11462    11406    11403    11143    11142 
+  madrid      así 
+   10826    10507 </code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>dfm_sample <span class="sc">%&gt;%</span> </span>
+<span id="cb23-2"><a href="#cb23-2"></a>  quanteda<span class="sc">::</span><span class="fu">topfeatures</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">decreasing =</span> F)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   napoleón       ocaso       fango     garcía-    sánchez-   andalucia 
+         10          10          10          10          10          10 
+   exprimir    huérfana equivocaron   imbatible 
+         10          10          10          10 </code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="explorando-datasets-2" class="slide level2">
+<h2>Explorando datasets</h2>
+<p>Búsqueda de palabras clave:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>comentarios_eta <span class="ot">&lt;-</span>  tokens_data_complete <span class="sc">%&gt;%</span> </span>
+<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">kwic</span>( <span class="at">pattern =</span> <span class="st">"eta"</span>,  <span class="at">window =</span> <span class="dv">7</span>) <span class="co"># &lt;&lt;</span></span>
+<span id="cb25-3"><a href="#cb25-3"></a></span>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">head</span>(comentarios_eta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Keyword-in-context with 6 matches.                                                                   
+ [text16, 674] merecen todas las víctimas del terrorismo de | eta |
+ [text16, 773]     como pnv nunca escribirán la historia de | eta |
+ [text16, 828]   la política de acercamiento de reclusos de | eta |
+   [text22, 7]         del balance imposible de víctimas de | eta |
+  [text22, 81]     como sucediera en los exterminios nazis, | eta |
+ [text22, 141]   justicia para las víctimas del terrorismo. | eta |
+                                                   
+ ". en su opinión,"                                
+ con vencedores o vencidos, sino solo              
+ impulsada por el gobierno ha situado a            
+ , conocemos las víctimas mortales pero no         
+ ha buscado durante medio siglo convertir en       
+ , como organización fuertemente jerarquizada en la</code></pre>
+</div>
+</div>
+</section>
 <section id="vectorizando-el-texto-word-embeddings" class="slide level2">
 <h2>Vectorizando el texto: word embeddings</h2>
-<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
 <div class="medium-par">
 <ul>
 <li class="fragment">Los <em>word embeddings</em> son una forma de representación de las palabras, que busca mantener el sentido semántico de las palabras, mapeándolas como vectores en un espacio multi-dimensional.</li>
@@ -813,7 +876,6 @@ docs           la    casa es  grande .      el   árbol   chico
 </section>
 <section id="vectorizando-el-texto-word-embeddings-1" class="slide level2">
 <h2>Vectorizando el texto: word embeddings</h2>
-<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
 <div class="r-stack">
 <p><img data-src="imagenes/reina.png" class="fragment fade-out" style="width:90.0%"></p>
 <p><img data-src="imagenes/most_similar_perro.png" class="fragment fade-in-then-out" style="width:90.0%"></p>
@@ -821,12 +883,10 @@ docs           la    casa es  grande .      el   árbol   chico
 </section>
 <section id="vectorizando-el-texto-word-embeddings-2" class="slide level2">
 <h2>Vectorizando el texto: word embeddings</h2>
-<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
 <p><img src="imagenes/embeddings.png" width="90%"></p>
 </section>
 <section id="vectorizando-el-texto-word-embeddings-3" class="slide level2">
 <h2>Vectorizando el texto: word embeddings</h2>
-<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
 <div class="columns">
 <div class="column small-par" style="flex: 0.55">
 <ul>
@@ -841,11 +901,35 @@ docs           la    casa es  grande .      el   árbol   chico
 </section>
 <section id="vectorizando-el-texto-word-embeddings-4" class="slide level2">
 <h2>Vectorizando el texto: word embeddings</h2>
-<p><span class="lightgray">Vectorización en base a frecuencias y</span> <strong>Word embeddings</strong></p>
 <div class="medium-par">
 <ul>
 <li class="fragment"><p>Para <em>word embeddings</em> los implementaremos en Python, ya que es donde hay más desarrollo tanto de NLP como de <em>Deep Learning</em></p></li>
 <li class="fragment"><p>No entraremos en más detalle, ya que lo más relevante es que podemos inyectar los <em>embeddings</em> dentro de una arquitectura de redes neuronales de forma de “entregarle” a nuestra red un conocimiento base avanzado del significado de las palabras, apoyando y mejorando el sistema.</p></li>
+<li class="fragment"><p>La implementación, afortunadamente, es sencilla.</p></li>
+</ul>
+</div>
+</section>
+<section id="la-tarea" class="slide level2">
+<h2>La Tarea</h2>
+<div class="medium-par">
+<ul>
+<li class="fragment">Recapitulando:
+<ul>
+<li class="fragment">Tenemos un conocimiento introductorio de Machine Learning y NLP</li>
+<li class="fragment">Por lo tanto, ya podemos aplicar el conocimiento adquirido a datos de CAENES.</li>
+<li class="fragment">Similar a la vez anterior, les entregaré un set de entrenamiento de training y de test (esta vez con sus etiquetas).</li>
+<li class="fragment">El plan es aplicar lo aprendido en la sección de vectorización de texto en base a frecuencias para generar el mejor modelo posible.</li>
+<li class="fragment">Es relevante ver si sus modelos pueden superar el rendimiento actual de las redes neuronales con el volumen de datos que tenemos actualmente</li>
+<li class="fragment">Algunos tips:
+<ul>
+<li class="fragment">Datos de oficio y tareas podrían incorporarse concatenando las glosas
+<ul>
+<li class="fragment">Fíjense que queden bien concatenadas (que la última palabra y la primera no queden juntadas con un “_“)</li>
+</ul></li>
+<li class="fragment">Recuerden preprocesar el texto</li>
+<li class="fragment">Pueden probar distintos modelos, distintos enfoques (bolsa de palabras vs td-idf), distintos hiperparámetros.</li>
+</ul></li>
+</ul></li>
 </ul>
 </div>
 </section></section>
