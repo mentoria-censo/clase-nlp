@@ -14,6 +14,7 @@ format:
     logo: imagenes/logo_portada2.png
     css: ine_quarto_styles.css
     # footer: <https://quarto.org>
+
 engine: knitr
 ---
 
@@ -58,6 +59,14 @@ if (!require("kableExtra")) install.packages("kableExtra")
 if (!require("word2vec")) install.packages("word2vec")
 if (!require("reticulate")) install.packages("reticulate")
 if (!require("tm")) install.packages("tm")
+
+crear_tabla <- function(tabla) {
+  tabla %>% 
+    kbl() %>% 
+    kable_styling(font_size = 18)
+}
+
+
 
 ```
 
@@ -445,7 +454,7 @@ Búsqueda de palabras clave:
 comentarios_eta <-  tokens_data_complete %>% 
   kwic( pattern = "eta",  window = 7) # <<
 
-head(comentarios_eta)
+head(comentarios_eta) %>% crear_tabla
 ```
 
 
@@ -511,13 +520,27 @@ head(comentarios_eta)
 
 
 ::: {.incremental .medium-par}
-- Para _word embeddings_ los implementaremos en Python, ya que es donde
+- Implementaremos los _word embeddings_  en Python, ya que es donde
 hay más desarrollo tanto de NLP como de _Deep Learning_
 
 - No entraremos en más detalle, ya que lo más relevante es que podemos inyectar los
 _embeddings_ dentro de una arquitectura de redes neuronales de forma de "entregarle" a nuestra red un conocimiento base avanzado del significado de las palabras, apoyando y mejorando el sistema.
 
 - La implementación, afortunadamente, es sencilla.
+:::
+
+## Otros tópicos
+
+::: {.incremental .medium-par}
+
+- Lo visto es solo una pincelada. Otros temas que no vimos:
+
+  - Análisis de sentimiento
+  - Reconocimiento de entidades nombradas (NER)
+  - Modelamiento de tópicos
+  - Generación de lenguaje
+  - Etc
+
 :::
 
 ## La Tarea

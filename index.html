@@ -385,6 +385,9 @@
       margin-right: 0; 
     }
   </style>
+  
+  <script src="clase-nlp_files/libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="clase-nlp_files/libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -421,7 +424,13 @@
 <span id="cb1-4"><a href="#cb1-4"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"kableExtra"</span>)) <span class="fu">install.packages</span>(<span class="st">"kableExtra"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"word2vec"</span>)) <span class="fu">install.packages</span>(<span class="st">"word2vec"</span>)</span>
 <span id="cb1-6"><a href="#cb1-6"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"reticulate"</span>)) <span class="fu">install.packages</span>(<span class="st">"reticulate"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"tm"</span>)) <span class="fu">install.packages</span>(<span class="st">"tm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"tm"</span>)) <span class="fu">install.packages</span>(<span class="st">"tm"</span>)</span>
+<span id="cb1-8"><a href="#cb1-8"></a></span>
+<span id="cb1-9"><a href="#cb1-9"></a>crear_tabla <span class="ot">&lt;-</span> <span class="cf">function</span>(tabla) {</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  tabla <span class="sc">%&gt;%</span> </span>
+<span id="cb1-11"><a href="#cb1-11"></a>    <span class="fu">kbl</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb1-12"><a href="#cb1-12"></a>    <span class="fu">kable_styling</span>(<span class="at">font_size =</span> <span class="dv">18</span>)</span>
+<span id="cb1-13"><a href="#cb1-13"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="qué-es-nlp" class="slide level2">
@@ -837,22 +846,79 @@ docs           la    casa es  grande .      el   árbol   chico
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>comentarios_eta <span class="ot">&lt;-</span>  tokens_data_complete <span class="sc">%&gt;%</span> </span>
 <span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">kwic</span>( <span class="at">pattern =</span> <span class="st">"eta"</span>,  <span class="at">window =</span> <span class="dv">7</span>) <span class="co"># &lt;&lt;</span></span>
 <span id="cb25-3"><a href="#cb25-3"></a></span>
-<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">head</span>(comentarios_eta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Keyword-in-context with 6 matches.                                                                   
- [text16, 674] merecen todas las víctimas del terrorismo de | eta |
- [text16, 773]     como pnv nunca escribirán la historia de | eta |
- [text16, 828]   la política de acercamiento de reclusos de | eta |
-   [text22, 7]         del balance imposible de víctimas de | eta |
-  [text22, 81]     como sucediera en los exterminios nazis, | eta |
- [text22, 141]   justicia para las víctimas del terrorismo. | eta |
-                                                   
- ". en su opinión,"                                
- con vencedores o vencidos, sino solo              
- impulsada por el gobierno ha situado a            
- , conocemos las víctimas mortales pero no         
- ha buscado durante medio siglo convertir en       
- , como organización fuertemente jerarquizada en la</code></pre>
+<span id="cb25-4"><a href="#cb25-4"></a><span class="fu">head</span>(comentarios_eta) <span class="sc">%&gt;%</span> crear_tabla</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table" data-quarto-postprocess="true" style="font-size: 18px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">docname</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">from</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">to</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">pre</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">keyword</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">post</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">text16</td>
+<td style="text-align: right;">674</td>
+<td style="text-align: right;">674</td>
+<td style="text-align: left;">merecen todas las víctimas del terrorismo de</td>
+<td style="text-align: left;">eta</td>
+<td style="text-align: left;">" . en su opinión , "</td>
+<td style="text-align: left;">eta</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">text16</td>
+<td style="text-align: right;">773</td>
+<td style="text-align: right;">773</td>
+<td style="text-align: left;">como pnv nunca escribirán la historia de</td>
+<td style="text-align: left;">eta</td>
+<td style="text-align: left;">con vencedores o vencidos , sino solo</td>
+<td style="text-align: left;">eta</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">text16</td>
+<td style="text-align: right;">828</td>
+<td style="text-align: right;">828</td>
+<td style="text-align: left;">la política de acercamiento de reclusos de</td>
+<td style="text-align: left;">eta</td>
+<td style="text-align: left;">impulsada por el gobierno ha situado a</td>
+<td style="text-align: left;">eta</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">text22</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">del balance imposible de víctimas de</td>
+<td style="text-align: left;">eta</td>
+<td style="text-align: left;">, conocemos las víctimas mortales pero no</td>
+<td style="text-align: left;">eta</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">text22</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: right;">81</td>
+<td style="text-align: left;">como sucediera en los exterminios nazis ,</td>
+<td style="text-align: left;">eta</td>
+<td style="text-align: left;">ha buscado durante medio siglo convertir en</td>
+<td style="text-align: left;">eta</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">text22</td>
+<td style="text-align: right;">141</td>
+<td style="text-align: right;">141</td>
+<td style="text-align: left;">justicia para las víctimas del terrorismo .</td>
+<td style="text-align: left;">eta</td>
+<td style="text-align: left;">, como organización fuertemente jerarquizada en la</td>
+<td style="text-align: left;">eta</td>
+</tr>
+</tbody>
+</table>
+
+
 </div>
 </div>
 </section>
@@ -903,9 +969,24 @@ docs           la    casa es  grande .      el   árbol   chico
 <h2>Vectorizando el texto: word embeddings</h2>
 <div class="medium-par">
 <ul>
-<li class="fragment"><p>Para <em>word embeddings</em> los implementaremos en Python, ya que es donde hay más desarrollo tanto de NLP como de <em>Deep Learning</em></p></li>
+<li class="fragment"><p>Implementaremos los <em>word embeddings</em> en Python, ya que es donde hay más desarrollo tanto de NLP como de <em>Deep Learning</em></p></li>
 <li class="fragment"><p>No entraremos en más detalle, ya que lo más relevante es que podemos inyectar los <em>embeddings</em> dentro de una arquitectura de redes neuronales de forma de “entregarle” a nuestra red un conocimiento base avanzado del significado de las palabras, apoyando y mejorando el sistema.</p></li>
 <li class="fragment"><p>La implementación, afortunadamente, es sencilla.</p></li>
+</ul>
+</div>
+</section>
+<section id="otros-tópicos" class="slide level2">
+<h2>Otros tópicos</h2>
+<div class="medium-par">
+<ul>
+<li class="fragment"><p>Lo visto es solo una pincelada. Otros temas que no vimos:</p>
+<ul>
+<li class="fragment">Análisis de sentimiento</li>
+<li class="fragment">Reconocimiento de entidades nombradas (NER)</li>
+<li class="fragment">Modelamiento de tópicos</li>
+<li class="fragment">Generación de lenguaje</li>
+<li class="fragment">Etc</li>
+</ul></li>
 </ul>
 </div>
 </section>
